@@ -3,13 +3,27 @@
 
 if __name__ == '__main__':
     # The for statement loops over any iterable.  This can be a list.
-    for i in [1, 3, 'hello']:
-        print(i)
+    #  e will take on 1, 3, then 'hello'
+    my_list = [1, 3, 'hello']
+    for e in my_list:
+        print(e)
 
     # Or it can be a generator function, like range.
     print()
     for i in range(5):
         print(i)
+
+    # You can get the index out using the enumerate function
+    #  in this case, i gets the index, e gets the element
+    print()
+    for i, e in enumerate(my_list):
+        print("Element {0} is at index {1}".format(e, i))
+
+    # You can also "zip" two lists together and loop over *both* at the same time
+    print()
+    my_range = range(3)  # A generator function that produces 0, 1, 2
+    for e, r in zip(my_list, my_range):
+        print("List item {0} and range item {1}".format(e, r))
 
     # You can nest for loops
     print()
