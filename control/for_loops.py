@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     # You can also "zip" two lists together and loop over *both* at the same time
     print()
-    my_range = range(3)  # A generator function that produces 0, 1, 2
+    my_range = range(3)   # A generator function that produces 0, 1, 2
     for e, r in zip(my_list, my_range):
         print("List item {0} and range item {1}".format(e, r))
 
@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     # This also works over dictionaries, using items()
     print()
-    d = {1:'un', 2:'deux', 3:'trois'}
+    d = {1: 'un', 2: 'deux', 3: 'trois'}
     for (k, v) in d.items():
         print('{0} => {1}'.format(k, v))
 
