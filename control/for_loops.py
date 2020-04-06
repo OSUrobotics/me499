@@ -8,6 +8,18 @@ if __name__ == '__main__':
     for e in my_list:
         print(e)
 
+    # or a tuple
+    print()
+    my_tuple = (1, 3, 'my tuple hello')
+    for i in my_tuple:
+        print(i)
+
+    # or a string
+    print()
+    my_string = "my string hello"
+    for c in my_string:
+        print(c)
+
     # Or it can be a generator function, like range.
     print()
     for i in range(5):
