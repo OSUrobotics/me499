@@ -3,13 +3,39 @@
 
 if __name__ == '__main__':
     # The for statement loops over any iterable.  This can be a list.
-    for i in [1, 3, 'hello']:
+    #  e will take on 1, 3, then 'hello'
+    my_list = [1, 3, 'hello']
+    for e in my_list:
+        print(e)
+
+    # or a tuple
+    print()
+    my_tuple = (1, 3, 'my tuple hello')
+    for i in my_tuple:
         print(i)
+
+    # or a string
+    print()
+    my_string = "my string hello"
+    for c in my_string:
+        print(c)
 
     # Or it can be a generator function, like range.
     print()
     for i in range(5):
         print(i)
+
+    # You can get the index out using the enumerate function
+    #  in this case, i gets the index, e gets the element
+    print()
+    for i, e in enumerate(my_list):
+        print("Element {0} is at index {1}".format(e, i))
+
+    # You can also "zip" two lists together and loop over *both* at the same time
+    print()
+    my_range = range(3)   # A generator function that produces 0, 1, 2
+    for e, r in zip(my_list, my_range):
+        print("List item {0} and range item {1}".format(e, r))
 
     # You can nest for loops
     print()
@@ -24,7 +50,7 @@ if __name__ == '__main__':
 
     # This also works over dictionaries, using items()
     print()
-    d = {1:'un', 2:'deux', 3:'trois'}
+    d = {1: 'un', 2: 'deux', 3: 'trois'}
     for (k, v) in d.items():
         print('{0} => {1}'.format(k, v))
 
