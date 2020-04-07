@@ -29,6 +29,15 @@ if __name__ == '__main__':
     a['one'] = 123
     print(a)
 
+    # Dictionary keys have to be immutable (technically, they have to be hashable, but it usually amounts to the same
+    # thing), because of the way that dictionaries work under the hood.  This means that, for example, you can't use a
+    # list as a key.
+    #a[[1, 2]] = 1  # Uncomment this to see how an immutable type doesn't work as a key
+
+    # But, a tuple will work just fine.
+    a[(1, 2)] = 1
+    print(a)
+
     # You can construct dictionaries with dictionary comprehensions.  These work just like list comprehensions.  This
     # example will build a dictionary of numbers and their squares.
     a = {x: x * x for x in range(10)}
