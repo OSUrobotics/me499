@@ -71,7 +71,7 @@ if __name__ == '__main__':
     print('Doing tests:')
     if odd_numbers_1(-5, 5) != list(range(-5, 6, 2)):
         print('  odd_numbers_1: Test failed')
-    if odd_numbers_1(-5, 5) != list(odd_numbers_2(-5, 5)):
+    if odd_numbers_2(-5, 5) != list(odd_numbers_2(-5, 5)):
         print('  odd_numbers_2: Test failed')
     print('  tests complete')
 
