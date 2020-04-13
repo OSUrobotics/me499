@@ -8,6 +8,14 @@ if __name__ == '__main__':
     b = {1, 2, 3, 2, 1}  # Notice that this gets rid of duplicates.
     print(a, b)
 
+    # Just like keys in dictionaries, you can only have immutable (well, hashable) items in sets.  So, no lists, for
+    # example.
+    #a = {[1, 2], 3, 4}  # Uncomment this line to see how you can't have lists in a set.
+
+    # But, as with dictionaries, tuples are fine.
+    a = {(1, 2), 3, 4}
+    print(a)
+
     # You can use sets in a for loop
     a = {1, 2, 3}
     for x in a:
