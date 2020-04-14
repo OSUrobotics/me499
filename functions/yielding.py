@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def odd_numbers_1(start, stop):
+def odd_numbers_list(start, stop):
     """
     Generate all the odd numbers in a given range.
 
@@ -15,7 +15,7 @@ def odd_numbers_1(start, stop):
     return [i for i in range(start, stop + 1) if i % 2 == 1]
 
 
-def odd_numbers_2(start, stop):
+def odd_numbers_generator(start, stop):
     """
     A generator function that returns all of the odd numbers in a given range.
 
@@ -47,7 +47,7 @@ def add_up_numbers_1():
     """
 
     total = 0
-    for i in odd_numbers_1(-10000000, 10000000):
+    for i in odd_numbers_list(-10000000, 10000000):
         total += i
     return total
 
@@ -60,7 +60,7 @@ def add_up_numbers_2():
     """
 
     total = 0
-    for i in odd_numbers_2(-10000000, 10000000):
+    for i in odd_numbers_generator(-10000000, 10000000):
         total += i
     return total
 
@@ -69,19 +69,21 @@ if __name__ == '__main__':
     # These tests are very minimal.  If you were using these functions for real, you would probably want to do more
     # complete testing
     print('Doing tests:')
-    if odd_numbers_1(-5, 5) != list(range(-5, 6, 2)):
+    # Note that you have to cast range(-5, 6, 2) to a list because it is a generator itself
+    if odd_numbers_list(-5, 5) != list(range(-5, 6, 2)):
         print('  odd_numbers_1: Test failed')
-    if odd_numbers_2(-5, 5) != list(odd_numbers_2(-5, 5)):
+    # odd_numbers_2 is also a generator, so you can check that it is the same as range
+    if odd_numbers_generator(-5, 5) != range(-5, 6, 2):
         print('  odd_numbers_2: Test failed')
     print('  tests complete')
 
     # We can use the results of the first function in a for loop
-    for n in odd_numbers_1(-5, 5):
+    for n in odd_numbers_list(-5, 5):
         print(n)
 
-    # We can also use the results of the second function in the same way.  The difference is that the second function
+    # We can also use the results of the second function in the same way.  The difference is that odd_numbers_2
     # never assembles the whole list.  This really matters if we're iterating over a large number of items.
-    for n in odd_numbers_2(-5, 5):
+    for n in odd_numbers_generator(-5, 5):
         print(n)
 
     # You can see the difference in how long this takes for large ranges.  Building the list takes time (and space)
