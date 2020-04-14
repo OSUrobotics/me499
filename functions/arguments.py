@@ -57,6 +57,29 @@ def everything(a, b, c=0, *args, **kwds):
     """
     print('everything():  a = {0}\n  b = {1}\n  c = {2}\n  args = {3}\n  kwds = {4}'.format(a, b, c, args, kwds))
 
+    # You can get to the specific arguments as a tuple (as in the print statement) or using a for loop
+    print('everything() args:')
+    for a in args:
+        print(' ', a)
+
+    # If you're accessing them directly, you should put things in a try block, since you can't guarantee how many
+    # arguments you'll have.  Since it's a tuple, problems will raise an IndexError.
+    try:
+        print('everything() first args:', args[0])
+    except IndexError:
+        print('everything() no args!')
+
+    # For the keyword args, you can access them like a dictionary,  kwds['a'], or using a for loop
+    print('everything() kwds:')
+    for (k, v) in kwds.items():
+        print('  {0} => {1}'.format(k, v))
+
+    # As for args, put direct accesses in a try block that catches KeyErrors:
+    try:
+        print('everything() keyword foo:', kwds['foo'])
+    except KeyError:
+        print('everything() no keyword argument foo!')
+
 
 if __name__ == '__main__':
     # The function foo can take between zero and three arguments.
