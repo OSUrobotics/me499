@@ -72,8 +72,8 @@ if __name__ == '__main__':
     # Note that you have to cast range(-5, 6, 2) to a list because it is a generator itself
     if odd_numbers_list(-5, 5) != list(range(-5, 6, 2)):
         print('  odd_numbers_1: Test failed')
-    # odd_numbers_2 is also a generator, so you can check that it is the same as range
-    if odd_numbers_generator(-5, 5) != range(-5, 6, 2):
+    # odd_numbers_2 is also a generator, so you need to cast both to a list in order to compare them
+    if list(odd_numbers_generator(-5, 5)) != list(range(-5, 6, 2)):
         print('  odd_numbers_2: Test failed')
     print('  tests complete')
 
