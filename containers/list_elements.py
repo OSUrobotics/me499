@@ -21,3 +21,9 @@ if __name__ == '__main__':
     for i in range(len(a)):
         a[i] = 1
     print(a)
+
+    # If you want to be fancy you can do this and get the index AND the element value
+    print(a)
+    for i, e in enumerate(a):
+        a[i] = e * 3
+    print(a)
