@@ -168,4 +168,4 @@ if __name__ == '__main__':
 
     # And here you see that you added an extra parameter, and it's giving you a warning for that
     # Note: This will cause a run-time error
-    k1.my_method_params(p1_pass, p2_pass, p3_pass, 0.3)
+    k1.my_method_params(p1_pass, p2_pass, p3_pass, 0.3, 0.5)
