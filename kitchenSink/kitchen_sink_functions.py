@@ -76,6 +76,7 @@ def make_variables():
                a_tuple, a_set, an_empty_dict, a_dict, y_fc, val, val_same)
     return ret_val
 
+
 # Getting and setting values in arrays
 # Remember, arrays are indexed from 0
 # Search term: "slicing"
@@ -191,7 +192,7 @@ def all_things_dict():
             # Will generate a key error if it doesn't exist
             # syntax is dict[key] = value
             a_count_dict[k] = a_count_dict[k] + v
-        except KeyError: # be specific about which error type
+        except KeyError:  #  be specific about which error type
             a_count_dict[k] = v
 
     # Some ways to iterate over the dictionary - note that the order is random (well, not completely) but DO NOT
