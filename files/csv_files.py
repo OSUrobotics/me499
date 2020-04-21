@@ -31,6 +31,11 @@ if __name__ == '__main__':
             # line is a list of strings.  You have to interpret what they are yourself.  In this case, we know that
             # they're integers, so we use map to apply the int function to each element of the list, then cast this
             # to a tuple.  Finally, we append this tuple to a list.
+            new_row = []
+            for r in row:
+                make_int = int(r)
+                new_row.append(make_int)
+            new_data.append(tuple(new_row))
             new_data.append(tuple(map(int, row)))
 
         # This is a more Pythonic (and elegant) way to do this.  Comment out the for loop and code block, and

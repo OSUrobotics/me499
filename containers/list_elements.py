@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # The loop variable is a copy of the element of the array.  This means that you can't modify it.
     print(a)
     for e in a:
-        e = 1  # This only modifies the local copy.
+        e = 1  # This only modifies the local copy. Note that PyCharm flags it as a warning
     print(a)
 
     # If you want to change the elements, that you need to iterate over the indexes.

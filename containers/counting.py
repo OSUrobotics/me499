@@ -40,6 +40,6 @@ if __name__ == '__main__':
     for k in sorted(c.keys()):
         print('  {0:2}: {1}'.format(k, count[k]))
 
-    # Any element that hasn't been seem has a count of zero, rather than raising a KeyError, like a standard dictionary
+    # Any element that hasn't been seen has a count of zero, rather than raising a KeyError, like a standard dictionary
     # would.
     print('\n100:', c[100])
