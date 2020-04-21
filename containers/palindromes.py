@@ -47,6 +47,7 @@ def palindrome3(x):
     # If we get to here, there are no mismatches, so it's a palindrome.
     return True
 
+
 def palindrome4(x):
     """
     Determine if the argument is a palindrome, using a slice-based solution.
@@ -64,8 +65,14 @@ if __name__ == '__main__':
     # Make a list of guaranteed palindromes.
     palindromes = []
     for _ in range(100):
-        q = [randint(1,1000) for _ in range(randint(1, 100))]
-        q += q[::-1]
+        q = [randint(1, 1000) for _ in range(randint(1, 100))]
+        r = q[::-1]
+
+        # Do we have an odd number of elements?
+        if random() > 0.5:
+            q += [randint(1, 1000)]
+        q += r
+
         palindromes.append(q)
 
     # Make a list of guaranteed not palindromes
