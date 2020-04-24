@@ -20,5 +20,9 @@ if __name__ == '__main__':
     plt.xlabel('x')
     plt.ylabel('sin(x)')
 
+    # You can also save this to a file.  Matplotlib will figure out the right file type based on the filename
+    # extension.
+    plt.savefig('sine.png')
+
     # We'll only see the graph when you run show().  The program will stop here, until you kill the plot window.
     plt.show()
