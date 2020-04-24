@@ -16,9 +16,5 @@ if __name__ == '__main__':
     plt.plot(x, x**2, 'bs')
     plt.plot(x, x**3, 'g^')
 
-    # You can also save this to a file.  Matplotlib will figure out the right file type based on the filename
-    # extension.
-    plt.savefig('powers.png')
-
     # Display it on the screen
     plt.show()
