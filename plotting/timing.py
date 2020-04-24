@@ -46,7 +46,8 @@ if __name__ == '__main__':
     set_plot, = plt.plot(sizes, set_times)
 
     # Build a legend for the plot.  The first argument is a list of the handles for the lines that plot
-    # returned, and the second is a list of text labels for the legend.
+    # returned, and the second is a list of text labels for the legend.  There's a lot more to legends, and
+    # the details are at: https://matplotlib.org/3.2.1/tutorials/intermediate/legend_guide.html
     plt.legend([list_plot, set_plot], ['list', 'set'])
 
 
