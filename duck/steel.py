@@ -68,3 +68,4 @@ if __name__ == '__main__':
     print(abs_of_steel2(1))
     print(abs_of_steel2([-1, 2, -3]))
     print(abs_of_steel2([1, 2, [-3, -4, -5]]))
+    print(cos_of_steel([0.2, 1.5, [3.0, 7.0]]))

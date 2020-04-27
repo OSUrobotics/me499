@@ -11,7 +11,9 @@ from numpy import arange, sin, pi
 
 if __name__ == '__main__':
     # A better use of plot is to give it both the x and the y values, so that the x-axis scale is correct.
-    x = arange(0, 2 * pi, 0.01)
+    #  arrange is a method in numpy. linspace is also a method in numpy
+    #  Note that we can use these without writing numpy.arrange because of how we imported them
+    x = arange(0, 2 * pi, 0.01)  # In MatLab this would be written as 0:0.01:2*pi
     y = sin(x)
     plt.plot(x, y)
 

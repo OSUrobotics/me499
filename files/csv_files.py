@@ -5,6 +5,14 @@
 import csv
 
 
+def write_my_csv(fname, data):
+    with open(fname, 'w') as f:
+        csv_file = csv.writer(f)
+        for datum in data:
+            # Write a row of data, represented by a tuple in this case, to the file.
+            csv_file.writerow(datum)
+
+
 if __name__ == '__main__':
     # Python has built-in support for csv files.  This is a good format for saving data, since it means you can
     # use the data in other programs, or import data from other programs.  The interface is similar to the file
@@ -14,6 +22,7 @@ if __name__ == '__main__':
     # to use a list comprehension for this.
     data = [(n, n *n) for n in range(10)]
 
+    write_my_csv('Squares.csv', data)
     # Write these data to a csv file
     with open('squares.csv', 'w') as f:
         csv_file = csv.writer(f)
