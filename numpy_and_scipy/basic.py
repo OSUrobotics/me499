@@ -15,23 +15,28 @@ if __name__ == '__main__':
     # Make an n-dimensional array filled with zeros
     my_zero_nd_array = np.zeros([2, 3])  # A 2 x 3 matrix
 
-    # Make an nd array from an array
+    # Make an nd array from a list
     my_array = [t * np.pi / 3.0 for t in range(0, 100)]
     my_nd_array = np.array(my_array)
+
+    # You can also put this in a single statement
+    my_nd_array_2 = np.array(t * np.pi / 3 for t in range(100))
 
     # Make a list from an ndarray
     my_list = list(my_zero_nd_array)
 
-    # linspace and equivalent
+    # linspace and arange
     my_t_array = np.linspace(0, 2 * np.pi, 100)
+    my_t_array_2 = np.arange(0, 2 * np.pi, 0.01)
 
-    # numpy operations can apply to entire arrays
+    # numpy operations can apply to entire arrays.  Notice that this sin() is different from the one
+    # you would import from the math module.
     my_s_array = np.sin(2.0 * my_t_array)
 
     # Matrix operations
     my_matrix = np.identity(4)
     my_vector = np.ones([4, 1])
-    my_vector_mult = my_matrix @ my_vector
+    my_vector_mult = my_matrix @ my_vector  # This is a matrix multiply
 
     # An example of calling fmin
     x_min = fmin( np.sin, np.pi / 3.0 )  # Sin function, start at pi/3
