@@ -20,10 +20,17 @@ if __name__ == '__main__':
     my_nd_array = np.array(my_array)
 
     # You can also put this in a single statement
-    my_nd_array_2 = np.array(t * np.pi / 3 for t in range(100))
+    my_nd_array_2 = np.array([t * np.pi / 3.0 for t in range(100)])
+
+    # Element-wise operations work for nd arrays
+    my_nd_array_res = my_nd_array * 3.0 + 3.0
+
+    # Boolean operations return arrays
+    my_array_check = abs(my_nd_array_res) < 7
+    print(my_array_check)
 
     # Make a list from an ndarray
-    my_list = list(my_zero_nd_array)
+    my_list = list(my_nd_array_res)
 
     # linspace and arange
     my_t_array = np.linspace(0, 2 * np.pi, 100)
@@ -33,11 +40,11 @@ if __name__ == '__main__':
     # you would import from the math module.
     my_s_array = np.sin(2.0 * my_t_array)
 
-    # Matrix operations
+    # Matrix operations - notice the @ instead of *
     my_matrix = np.identity(4)
     my_vector = np.ones([4, 1])
     my_vector_mult = my_matrix @ my_vector  # This is a matrix multiply
 
     # An example of calling fmin
-    x_min = fmin( np.sin, np.pi / 3.0 )  # Sin function, start at pi/3
+    x_min = fmin(np.sin, np.pi / 3.0)  # Sin function, start at pi/3
     print("Minimum value of sin: {0}".format(x_min))
