@@ -11,6 +11,11 @@ import numpy as np
 from scipy.optimize import fmin
 
 
+def my_func(t):
+    x = np.sin(t) * np.cos(2*t)
+    return x
+
+
 if __name__ == '__main__':
     # Make an n-dimensional array filled with zeros
     my_zero_nd_array = np.zeros([2, 3])  # A 2 x 3 matrix
@@ -48,3 +53,6 @@ if __name__ == '__main__':
     # An example of calling fmin
     x_min = fmin(np.sin, np.pi / 3.0)  # Sin function, start at pi/3
     print("Minimum value of sin: {0}".format(x_min))
+
+    x_min = fmin(my_func, np.pi / 3.0)  # Modified sin function
+    print("Minimum value of my func: {0}".format(x_min))
