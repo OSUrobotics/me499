@@ -14,7 +14,7 @@ def max_obstacle_dist(laserscan, robot_width=0.1):
     plt.xlim(0, 2)
     plt.savefig('robot.png')
 
-    in_front_of_robot = y_coords < robot_width / 2
+    in_front_of_robot = np.abs(y_coords) < robot_width / 2
     if not in_front_of_robot.size:
         return np.inf
     else:
