@@ -22,6 +22,12 @@ if __name__ == '__main__':
     a = [random() for _ in range(5)]
     print(a)
 
+    # Same code as below but with if and for written out
+    a = []
+    for i in range(10):
+        if i % 2 == 0:
+            a.append(i)
+
     # You can put conditions on the list elements.  This builds a list of even numbers.
     a = [i for i in range(10) if i % 2 == 0]
     print(a)
