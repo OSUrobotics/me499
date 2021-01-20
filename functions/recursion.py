@@ -42,6 +42,8 @@ def factorial_r(number):
         return number * factorial_r(number - 1)
 
 
+# factorial of 10:  10 * 9 * 8...
+# factorial of 10: 10 * factorial of 9
 if __name__ == '__main__':
     # Import the built-in Python function for factorial, so that we can test our implementations against it.  By
     # importing in the testing block, we make sure we don't import it unless we're running the tests.
