@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     # You access the elements of the dictionary like this
     a = {'one': 1, 'two': 2, 'couple': 2}
-    print(a['one'])
+    print(a['one'])  # a[key] returns value paired with that key
 
     # You can add a new element like this
     print(a)
@@ -26,7 +26,11 @@ if __name__ == '__main__':
 
     # If the element already exists, then assignment changes the value
     print(a)
-    a['one'] = 123
+    a['one'] = 123  # changes 1 to 123
+    print(a)
+
+    # You can also change a value this way
+    a['one'] = a['one'] + 333  # Gets the current value and adds 333
     print(a)
 
     # Dictionary keys have to be immutable (technically, they have to be hashable, but it usually amounts to the same
@@ -40,30 +44,58 @@ if __name__ == '__main__':
 
     # You can construct dictionaries with dictionary comprehensions.  These work just like list comprehensions.  This
     # example will build a dictionary of numbers and their squares.
+    #   This is the equivalent of [x for x in range(10)] for lists,
+    #   but notice the curly brackets and the key: value construction
     a = {x: x * x for x in range(10)}
     print(a)
 
     # Here's another example, also showing the use of the zip function.  This is not how you would do this for real,
     # but it's a good example of how you can build dictionaries from lists.
-    a = list(range(10))
-    b = [x * x for x in a]
-    c = {k: v for (k, v) in zip(a, b)}
-    print(c)
+    a_list = list(range(10))
+    b_list = [x * x for x in a]
+    my_dict_v1 = {k: v for (k, v) in zip(a_list, b_list)}
+    print(my_dict_v1)
 
-    # You can use dictionaries with for loops like this:
-    a = {x: x * x for x in range(10)}
-    for (k, v) in a.items():
+    # This is exactly the same as the above (in terms of functionality)
+    # just broken down a bit. Notice that list_of_tuples is a generator,
+    # not a list - but you can think of it as a list of tuples
+    #   zip can take 2 or more lists - but the lists have to be
+    #   the same length
+    my_dict_v2 = {}
+    list_of_tuples = zip(a_list, b_list)  # zip creates a generator that returns tuples
+    for k, v in list_of_tuples:
+        my_dict_v2[k] = v   # my_dict[key] = value
+    print(my_dict_v2)
+
+    # This does the same thing as the above, just all at once
+    #   Notice the calculation of the key AND the value from x
+    my_dict_v3 = {x: x * x for x in range(10)}
+    print(my_dict_v3)
+
+    # There are FOUR ways to loop over all of the elements in a
+    #  dictionary: a, a.items(), a.keys(), and a.values()
+    # .items gets the key and the value as a pair
+    my_dict = {'one': 1, 'two': 2, 'couple': 2}
+    for k, v in my_dict.items():
         print('{0} -> {1}'.format(k, v))
 
     # You can also iterate over the keys or the values.  If you just iterate over the dictionary, then you get the keys.
-    a = {'one': 1, 'two': 2, 'couple': 2}
-    print('just dictionary: ', end='')
-    for x in a:
+    print('just dictionary: ', end='')  # The end='' replaces the return with zilch
+    for x in my_dict:
         print(x, end=' ')
+
+    # The keys
     print('\nkeys(): ', end='')
-    for x in a.keys():
-        print(x, end=' ')
+    for k in my_dict.keys():
+        print(k, end=' ')
+
+    # The keys and use the key to get the corresponding value
+    print('\nkeys(), values: ', end='')
+    for k in my_dict.keys():
+        print("{0} -> {1}  ".format(k, my_dict[k]), end=' ')
+
+    # The values only
     print('\nvalues(): ', end='')
-    for x in a.values():
-        print(x, end=' ')
+    for v in my_dict.values():
+        print(v, end=' ')
     print()
