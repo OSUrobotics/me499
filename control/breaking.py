@@ -22,7 +22,7 @@ def continue_while(numbers):
     A function illustrating the use of continue in a for loop.  This one prints out the even numbers in an iterable.
     There are better ways of doing this, but we're using continue to illustrate its use.
 
-    :return:
+    :return: Nothing
     """
 
     for n in numbers:
