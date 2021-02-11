@@ -13,9 +13,9 @@ def f(a=(0, 3)):
 if __name__ == '__main__':
 
     fname = 'foo.wav'
-    (sf, data) = wavfile.read('sinewave1000hz.wav')
+    (sf, data) = wavfile.read('data/sinewave1000hz.wav')
 
-    magic_fft = fft.rfft(data)
+    magic_fft = fft(data)
     print(magic_fft)
 
     a = np.array([1, 3, 5, 6])
