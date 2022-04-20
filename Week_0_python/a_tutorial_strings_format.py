@@ -7,7 +7,7 @@
 #  letters/numbers/symbols/whitespace etc.
 # Strings are primarily used for displaying data in a "human readable" form, but they can also be used as parameters
 #  to functions.
-# The primary "gotcha" of strings is that the string "3.5" is NOT the nubmer 3.5 - it is three characters, 3.5, that
+# The primary "gotcha" of strings is that the string "3.5" is NOT the number 3.5 - it is three characters, 3.5, that
 #  can be converted to a number (or is the string version of a number).
 #
 # There are many utilities/functions for converting from other data types (like numbers, dates, times) to strings and
@@ -16,7 +16,7 @@
 # ------------------------------------------------------------------------------
 # Printing out variables or displaying them in the debugger: This is probably the most common use for strings
 
-# A random collection of variables of different types - look at they type in the debugger
+# A random collection of variables of different types - look at their type in the debugger
 a_floating_point_number = 3.6720
 an_integer = 6
 a_string = "I am a string"
@@ -110,7 +110,7 @@ my_str_list = ""
 for n in list_of_numbers:
     str_n = "{:.2}".format(n)  # Convert n to a string, with formatting
     my_str_list = my_str_list + str_n + ", "  # append the string for n with a ,
-my_str_list = my_str_list[0:-3]  # Take out the last ,
+my_str_list = my_str_list[0:-2]  # Take out the last ,
 print(my_str_list)
 
 # END OPTIONAL
@@ -124,10 +124,11 @@ an_integer = int("3")
 # ERRORS - converting a string to a number
 # It will throw an error if, for example, you try to convert a string that isn't a number - uncomment these lines and
 #   you'll get ValueError: could not convert string to float: 'a3.2' printed out to the command line
+# UNCOMMENT
 #bad_number = float("a3.2")
 #  ... and this one gives ValueError: invalid literal for int() with base 10: '6.7'
+# UNCOMMENT
 #bad_int_number = int("6.7")
-
 # END ERRORS
 
 # ERRORS - weird behavior with a number and string
@@ -136,5 +137,16 @@ my_str_not_a_number = "3.6"
 # Weird string behavior - the '*' is interpreted as make 3 copies of the string
 my_str_times_3 = my_str_not_a_number * 3
 # Causes a TypeError: unsupported operand type(s) for +: 'int' and 'str'
+# END ERRORS
 
+# ERRORS - you can't change an element of a string because it is immutable
+# TypeError: 'str' object does not support item assignment
+my_str = "A long string"
+# Attempting to convert the first character to a lower case
+# UNCOMMENT
+# my_str[0] = 'a'
+# The right way to do this is to create a new string with the change and assign it to the same variable
+my_str = my_str.lower()
+# OR
+my_str = 'a' + my_str[1:]
 # END ERRORS

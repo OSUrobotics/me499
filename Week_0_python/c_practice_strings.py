@@ -24,7 +24,7 @@ print(f"First variable is , value , second variable is , value ")
 #   First variable is x, value 3.79, second variable is y, value 1.30e+10
 
 # LO: Can do equations in format, newline (\n) and tab (\t)
-# Second version - modify one (or both) of the print statements below to produce:
+# Third version - modify one (or both) of the print statements below to produce:
 #   - do this with ONE print statement, using \n, and without creating new variables
 #   - hint mean is (x + y) / 2
 # Variables (x, y), values (3.79, 1.30e+10),
@@ -33,13 +33,14 @@ print(f"First variable is , value , second variable is , value ")
 # ------------------------------------------------------------------------------
 # Splitting up long strings into text and numbers
 #
-my_fname = "foo.txt"
-
 # LO: String indexing, building one string from multiple ones (use + or "".format or f"")
 # Change my_new_fname to be "foo.csv" instead of "foo.txt'
 #   You must use my_fname - don't just type in the values. This should work even if you change foo to something else
 # Should output:
 # Old file name: foo.txt, New file name: foo.csv
+
+my_fname = "foo.txt"
+
 my_new_fname = my_fname
 print(f"Old file name: {my_fname}, New file name: {my_new_fname}")
 
@@ -90,6 +91,7 @@ for my_str in my_long_str.split(","):
     print(f"{my_str}")
 print(f"My fixed string: {my_fixed_str}")
 
+# ------------------------------------------------------------------------
 # ANSWERS
 print("-"*10 + "ANSWERS" + "-"*10)
 print("First version")
@@ -110,12 +112,15 @@ print("-"*20)
 my_new_fname_v1 = my_fname[:-4] + ".csv"
 # But this works too
 my_new_fname_v2 = f"{my_fname[:-4]}.csv"
+# And this...
 my_new_fname_v3 = "{}.csv".format(my_fname[:-4])
+# Print out the new file names
 print(f"Old file name: {my_fname}, New file name: {my_new_fname_v1}")
 print(f"Old file name: {my_fname}, New file name: {my_new_fname_v2}")
 print(f"Old file name: {my_fname}, New file name: {my_new_fname_v3}")
 
-# Simplest:
+# --------
+# Simplest dash replace:
 str_without_dash = str_with_dash.replace("-", " ")
 print(f"Dashed: {str_with_dash}, not dashed: {str_without_dash}")
 
@@ -132,12 +137,11 @@ print(my_do_it_all)
 m_long_str_modified = my_long_str.strip("()") # Or just take out the () and do the white space later
 # Building the new string
 my_fixed_string = "("  # Start with the (
-# Optional - doing it the fancy way with join and a list
-my_fixed_strs_fancy = []
 
 # Split returns a list of strings, removing the ,
+#   The for loop will assign my_str to each of those strings in the list in turn
 for my_str in m_long_str_modified.split(","):
-    # Remove the white space
+    # Remove the white space - don't pass in parameters if you want strip to remove ALL types of white space
     my_str_modified = my_str.strip()
     # See if we have a digit
     if my_str_modified.isdigit():
@@ -146,8 +150,6 @@ for my_str in m_long_str_modified.split(","):
         # Note the my_fixed_string = my_fixed_string - you can't edit my_fixed_string, but you can make a new
         #   string from my_fixed_string and then assign that to the same variable
         my_fixed_string = my_fixed_string + str(my_num) + ", "   # Note the cast back to a str
-        # Optional: Put the new string in the list
-        my_fixed_strs_fancy.append(str(my_num))
         # Print statement
         print(f"Is an integer: {my_str_modified}, adding two: {my_num}")
     else:
@@ -160,13 +162,43 @@ for my_str in m_long_str_modified.split(","):
         # See above about building my_fixed_string
         my_fixed_string = my_fixed_string + my_str_modified + ", "
 
-        # Optional: Put the new string in the list
-        my_fixed_strs_fancy.append(my_str_modified)
+        # Print statement
         print(f"Is not an integer: {my_str_modified}")
 
 # Take out the last comma and add the )
 my_fixed_string = my_fixed_string[0:-2] + ")"
 print(f"My fixed string: {my_fixed_string}")
+
+# ----------------------
+# OPTIONAL - doing it the fancy way with join and a list
+# This version is a bit "easier" to debug, because we split up the string, then store each piece in the list,
+#  and wait until the end to put the list back together. This separates out two conceptual steps - splitting up and
+#  editing the original list, and sticking the list back together into a string.
+my_fixed_strs_fancy = []  # where to put the fixed strings
+
+# Outer for loop is the same
+for my_str in m_long_str_modified.split(","):
+    # Remove the white space - don't pass in parameters if you want strip to remove ALL types of white space
+    my_str_modified = my_str.strip()
+    # See if we have a digit
+    if my_str_modified.isdigit():
+        # Note the conversion to int - you can't add 2 to a string
+        my_num = int(my_str_modified) + 2
+        # Convert back to a string
+        my_num_str = str(my_num)
+        # Put the new string in the list - note the str() to cast the number to a string
+        my_fixed_strs_fancy.append(my_num_str)
+        # Print statement
+        print(f"Is an integer: {my_str_modified}, adding two: {my_num}")
+    else:
+        # Do all the modifications at once
+        my_str_modified = my_str_modified.replace("-", " ").replace("'", " ")
+
+        # Put the new string in the list
+        my_fixed_strs_fancy.append(my_str_modified)
+
+        # Print statement
+        print(f"Is not an integer: {my_str_modified}")
 
 # This is the more elegant way to do this, building a list of strings then using join to put them together with ,s
 my_fixed_string_fancy = "(" + ", ".join(my_fixed_strs_fancy) + ")"
@@ -183,6 +215,7 @@ for my_str in m_long_str_modified.split(","):
         my_str_modified = str(my_num)  # You could do these in one line, but...
         print(f"Is a number: {my_str_modified}")
     except ValueError:
+        # If the above code failed, do this instead
         my_str_modified =  my_str.strip().replace("-", " ").replace("'", " ")
         print(f"Is not a number: {my_str_modified}")
 
