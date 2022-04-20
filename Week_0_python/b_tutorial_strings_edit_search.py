@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # ------------------------------------------------------------------------------
-# Editing strings - sometimes you have to take a string and edit it. Strings are IMMULTABLE - that means, you can't
+# Editing strings - sometimes you have to take a string and edit it. Strings are IMMUTABLE - that means, you can't
 #  edit them in place. So all editing looks like copying over the pieces you want to keep.
 # There are a TON of existing routines for editing and searching and taking apart strings.
 #   Upper/lower case, is it a letter, number or a white space, take out special characters
@@ -40,6 +40,7 @@ print(my_not_yelling_string_better)
 # You can't directly edit a string. You'll get a very confusing error message that says
 #   TypeError: 'str' object does not support item assignment
 # Translate that as: You can't assign to an individual character in a string
+# UNCOMMENT
 # my_not_yelling_string[1] = 's'
 
 # END ERRORS
@@ -47,7 +48,7 @@ print(my_not_yelling_string_better)
 # ------------------------------------------------------------------------------
 # Splitting up strings
 # Often when you read in strings from files (or people type in strings) you'll get strings that you have to "split up",
-#  for example, by getting all the numbers separated by commmas OR ignoring a descriptor at the beginning
+#  for example, by getting all the numbers separated by commas OR ignoring a descriptor at the beginning
 # For these examples we'll have strings "typed in" (rather than reading them from a file) just to keep things simple.
 # In reality, you usually have to do this when you can't edit the files directly.
 
@@ -59,7 +60,7 @@ list_of_numbers = [0.3 + 0.1 * n for n in range(0, 10)]
 # Put a random number in the middle
 list_of_numbers.insert(3, "3.3e-3")
 
-# Turn it into a string a tab at the beginning (the \t)
+# Turn it into a string with a tab at the beginning (the \t)
 str_list_of_numbers = "\t" + ", ".join(["{:.2}"] * len(list_of_numbers)).format(*list_of_numbers)
 print(str_list_of_numbers)
 
@@ -103,7 +104,7 @@ print(my_numbers)
 # Editing file name(s)
 # This is pretty common - take the last 4 characters off and replace them with a different file type
 file_name_orig = "my_file.txt"
-file_name_new = file_name_orig[0:-3] + ".csv"
+file_name_new = file_name_orig[0:-4] + ".csv"
 print(file_name_new)
 
 
