@@ -33,4 +33,20 @@ def calc_stats_from_list(in_list):
     #  of the values in the same place and assigns a meaningful label (key) to them
     dict_ret_stats = {"Mean positive": 0, "Mean negative": 0, "Count positive": 0, "Count negative": 0}
 
+    # BEGIN SOLUTION
+    # Note that I would normally do this with 4 variables, and then create the dictionary at the end and return it,
+    #   (which would save a lot of dictionary accesses) but doing this way because it makes setting up the automatic
+    #   grading software easier
+    for n in in_list:
+        if n < 0:
+            dict_ret_stats["Mean negative"] += n
+            dict_ret_stats["Count negative"] += 1
+        else:
+            dict_ret_stats["Mean positive"] += n
+            dict_ret_stats["Count positive"] += 1
+
+    if dict_ret_stats["Count negative"] > 0:
+        dict_ret_stats["Mean negative"] /= dict_ret_stats["Count negative"]
+    dict_ret_stats["Mean negative"]
+    # END SOLUTION
     return dict_ret_stats
