@@ -1,1 +1,17 @@
 
+This repository has tutorial and example code for learning Python, as well as lab and homework exercises.
+
+There are two parts to this repository:
+1) There is a week by week set of tutorials, lecture scripts, labs and tutorials 
+2) There is example code organized by task
+
+The lectures/tutorials organization can be found here: https://miro.com/app/board/uXjVOWs8R4Y=/?share_link_id=90637665390
+With the corresponding lectures here: https://drive.google.com/drive/folders/1KBvPjXPmD0cX_CH8XmqaSLWtlBg4sooo?usp=sharing
+Note that these materials are part of a class; I've tried to make them as stand-alone/self-guided as possible.
+
+The Miro diagram is the best place to start with for "What's where?" and "What do I need to know?". Each topic is encapsulated in a frame with information organized by what you need to know/what are the key ideas, what do you use that topic for (task), and the main "gotchas" I have seen. For each topic I have included some web resources and which scripts to use.
+
+For the week by week scripts, most of them have both a regular python (.py) and a jupyter notebook (.ipynb) version. 
+
+The Miro diagram is organized with specific topics on the left, the course week-by-week structure on the upper right, and the example task code on the bottom right. For each topic I have selected a handful of web-sites that I think are good summaries of the material.
+
